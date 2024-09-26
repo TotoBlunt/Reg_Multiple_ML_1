@@ -6,6 +6,6 @@ from sklearn.metrics import r2_score,mean_squared_error
 #Titulo para el app
 st.title('Regresion Lineal Multiple con Streamlit')
 #Elegir archivo a subir
-archivo_subido = st.multiselect('Selecciona el tipo de archivo a trabajarar','1 -> CSV','2 -> Excel')
-#Subir un archivo
+archivo_subido = st.file_uploader("Selecciona un archivo", type=["csv", "xlsx"])
+
 upload_file = st.file_uploader('Sube un archivo CSV', type=['csv'])
