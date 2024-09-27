@@ -15,12 +15,12 @@ try:
         
         if extension == 'csv':
             df = pd.read_csv(archivo_subido)
-            st.write('Haz subido un archivo Excel')
+            st.write('Haz subido un archivo CSV')
             st.dataframe(df)
 
         elif extension == 'xlsx':
             df = pd.read_excel(archivo_subido)
-            st.write('Haz subido un archivo CSV')
+            st.write('Haz subido un archivo Excel')
             st.dataframe(df)
 
         else:
@@ -32,7 +32,7 @@ try:
         st.write(f'Numero de Columnas:  {df.shape[1]}')
         
         #Seleccionar variable Objetivo o Target
-        target = st.multiselect('Selecciona la Variable Objetivo o Target ', df.columns)
+        target = st.multiselect('### Selecciona la Variable Objetivo o Target ', df.columns)
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
