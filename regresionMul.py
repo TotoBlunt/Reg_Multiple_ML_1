@@ -31,7 +31,7 @@ try:
         st.write(f'Numero de Filas:  {df.shape[0]}')
         st.write(f'Numero de Columnas:  {df.shape[1]}')
         #Selecionando variables no numericas
-        st.write(df.dtypes('object'))
+        st.write(df[df.dtypes == 'object'])
         #Seleccionar variable Objetivo o Target
         target = st.selectbox('Selecciona la Variable Objetivo o Target :', df.columns)
         st.write(target)
