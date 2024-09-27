@@ -30,7 +30,7 @@ try:
         st.write('### Informacion adicional del DataFrame:')
         st.write(f'Numero de Filas: {df.shape[0]}')
         st.write(f'Numero de Columnas: {df.shape[1]}')
-        st.write('Nombres de las columnas: ',df.columns.tolist())
+        st.write('Nombres de las columnas: ',df.columns.tolist().T)
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
