@@ -32,7 +32,7 @@ try:
         st.write(f'Numero de Columnas:  {df.shape[1]}')
         
         #Seleccionar variable Objetivo o Target
-        target = st.select('Selecciona la Variable Objetivo o Target ', df.columns)
+        target = st.multiselect('Selecciona la Variable Objetivo o Target ', df.columns)
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
