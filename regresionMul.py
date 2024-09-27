@@ -30,7 +30,9 @@ try:
         st.write('### Informacion adicional del DataFrame:')
         st.write(f'Numero de Filas:  {df.shape[0]}')
         st.write(f'Numero de Columnas:  {df.shape[1]}')
+
         #Selecionando variables no numericas
+        st.write('### Variables No numericas')
         no_numericas = df.select_dtypes(include='object').columns
         st.write(no_numericas)
         #Seleccionar variable Objetivo o Target
@@ -38,7 +40,7 @@ try:
         st.write(target)
 
         #Selecionar Variables independientes o predictoras
-        predictoras = st.multiselect('Selecionar variables predictoras o independientes:' , df.columns)
+        predictoras = st.multiselect('Selecionar variables predictoras o independientes:' , df.drop(no_numericas).columns)
         st.write(predictoras)
 
 except Exception as e:
