@@ -32,7 +32,12 @@ try:
         st.write(f'Numero de Columnas:  {df.shape[1]}')
         
         #Seleccionar variable Objetivo o Target
-        target = st.multiselect('### Selecciona la Variable Objetivo o Target ', df.columns)
+        target = st.selectbox('Selecciona la Variable Objetivo o Target :', df.columns)
+        st.write(target.info())
+
+        #Selecionar Variables independientes o predictoras
+        predictoras = st.multiselect('Selecionar variables predictoras o independientes:' , df.columns)
+        st.write(predictoras.info())
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
