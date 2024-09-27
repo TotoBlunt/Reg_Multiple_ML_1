@@ -14,12 +14,12 @@ try:
         extension = archivo_subido.name.split('.')[-1]
         st.write(archivo_subido.name,extension)
         if extension == 'csv':
-            df = pd.read_csv('archivo_subido')
+            df = pd.read_csv(archivo_subido)
             st.write('Haz subido un archivo Excel')
             st.dataframe(df)
 
         elif extension == 'xlsx':
-            df = pd.read_excel('archivo_subido')
+            df = pd.read_excel(archivo_subido)
             st.write('Haz subido un archivo CSV')
             st.dataframe(df)
 
