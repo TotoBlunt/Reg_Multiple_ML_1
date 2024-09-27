@@ -11,7 +11,7 @@ archivo_subido = st.file_uploader("Selecciona un archivo: Excel o CSV", type=["c
 
 #VEr Archivo
 if archivo_subido is not None:
-    extension = archivo_subido.split('.')[-1]
+    extension = archivo_subido.name.split('.')[-1]
     if extension == 'csv':
         df = pd.read_csv('archivo_subido')
         st.write(df.head())
