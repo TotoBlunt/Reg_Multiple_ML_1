@@ -28,11 +28,9 @@ try:
         
         #Opciones Adicionales
         st.write('### Informacion adicional del DataFrame:')
-        st.write(f'''
-                    Numero de Filas: {df.shape[0]}
-                    Numero de Columnas: {df.shape[1]}
-                    ''')
-        st.write(f'Nombres de las columnas: {df.columns.tolist()}')
-        
+        st.write(f'Numero de Filas: {df.shape[0]}')
+        st.write(f'Numero de Columnas: {df.shape[1]}')
+        st.write('Nombres de las columnas: ',df.columns.tolist())
+
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
