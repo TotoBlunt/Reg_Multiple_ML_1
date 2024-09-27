@@ -12,6 +12,7 @@ try:
     #VEr Archivo
     if archivo_subido is not None:
         extension = archivo_subido.name.split('.')[-1]
+        st.write(archivo_subido.name)
         if extension == 'csv':
             df = pd.read_csv('archivo_subido')
             st.write('Haz subido un archivo Excel')
@@ -21,7 +22,7 @@ try:
             df = pd.read_excel('archivo_subido')
             st.write('Haz subido un archivo CSV')
             st.dataframe(df)
-            
+
         else:
             st.write('Tipo de archivo no soportado')
 except Exception as e:
