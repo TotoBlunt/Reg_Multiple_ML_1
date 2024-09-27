@@ -12,7 +12,7 @@ try:
     #VEr Archivo
     if archivo_subido is not None:
         extension = archivo_subido.name.split('.')[-1]
-        st.write(archivo_subido.name,extension)
+        
         if extension == 'csv':
             df = pd.read_csv(archivo_subido)
             st.write('Haz subido un archivo Excel')
@@ -25,5 +25,14 @@ try:
 
         else:
             st.write('Tipo de archivo no soportado')
+        
+        #Opciones Adicionales
+        st.write('### Informacion adicional del DataFrame:')
+        st.write(f'''
+                    Numero de Filas: {df.shape[0]}
+                    Numero de Columnas: {df.shape[1]}
+                    ''')
+        st.write(f'Nombres de las columnas: {df.columns.tolist()}')
+        
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
