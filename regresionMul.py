@@ -14,10 +14,14 @@ try:
         extension = archivo_subido.name.split('.')[-1]
         if extension == 'csv':
             df = pd.read_csv('archivo_subido')
-            st.write(df.head())
+            st.write('Haz subido un archivo Excel')
+            st.dataframe(df)
+
         elif extension == 'xlsx':
             df = pd.read_excel('archivo_subido')
-            st.write(df.head())
+            st.write('Haz subido un archivo CSV')
+            st.dataframe(df)
+            
         else:
             st.write('Tipo de archivo no soportado')
 except Exception as e:
