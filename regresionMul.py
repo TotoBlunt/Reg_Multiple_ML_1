@@ -12,7 +12,7 @@ try:
     #VEr Archivo
     if archivo_subido is not None:
         extension = archivo_subido.name.split('.')[-1]
-        st.write(archivo_subido.name)
+        st.write(archivo_subido.name,extension)
         if extension == 'csv':
             df = pd.read_csv('archivo_subido')
             st.write('Haz subido un archivo Excel')
