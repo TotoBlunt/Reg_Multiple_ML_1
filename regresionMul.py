@@ -33,11 +33,11 @@ try:
         
         #Seleccionar variable Objetivo o Target
         target = st.selectbox('Selecciona la Variable Objetivo o Target :', df.columns)
-        st.write(target.info())
+        st.write(target)
 
         #Selecionar Variables independientes o predictoras
         predictoras = st.multiselect('Selecionar variables predictoras o independientes:' , df.columns)
-        st.write(predictoras.info())
+        st.write(predictoras)
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
