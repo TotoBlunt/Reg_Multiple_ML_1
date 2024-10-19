@@ -35,7 +35,11 @@ try:
         st.write('### Variables No numericas')
         no_numericas = df.select_dtypes(include='object').columns
         st.write(no_numericas)
-        df_num = df.drop([no_numericas])
+        if no_numericas == 0 :
+            df_num = df
+            pass
+        else:
+            df_num = df.drop([no_numericas])
 
         st.dataframe(df_num)
 
