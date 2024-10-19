@@ -39,7 +39,7 @@ try:
             df_num = df
             pass
         else:
-            df_num = df.drop([no_numericas])
+            df_num = df.drop(to_list(no_numericas))
 
         st.dataframe(df_num)
 
