@@ -36,7 +36,7 @@ try:
         st.write('### Variables No numericas')
         no_numericas = df.select_dtypes(include='object').columns
         st.write(no_numericas)
-        if no_numericas == 0 :
+        if len(no_numericas)==0 :
             df_num = df
             pass
         else:
