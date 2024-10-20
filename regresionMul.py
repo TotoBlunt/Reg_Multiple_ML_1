@@ -66,17 +66,20 @@ try:
         model_RegL.fit(X_train,y_train)
         #Hacer prediccion
         y_pred = model_RegL.predict(X_test)
+        st.write('### Intercepto y Coeficientes')
+        st.write(f'Intercepto: {model_RegL.intercept_}')
+        st.write(f'Coeficientes: {model_RegL.coef_}')
 
         st.write('### Metricas de Evaluacion del Modelo')
-        #Metricas de medicion
+        #Metricas de evaluacion
         r2 = r2_score(y_test,y_pred)
         mse = mean_squared_error(y_test,y_pred)
-        st.write(f'R2: {r2}')
-        st.write(f'MSE: {mse}')
+        st.write(f'R2: {r2:.4f}')
+        st.write(f'MSE: {mse:.4f}')
 
         #Validacion cruzada
         cv_model = cross_val_score(model_RegL,X,y,cv=5,scoring='r2')
-        st.write(f'Mediana de Validacion Cruzada: {cv_model.mean()}')
+        st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
