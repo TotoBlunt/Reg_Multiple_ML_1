@@ -41,7 +41,7 @@ try:
             pass
         else:
             df_num = df.drop(list(no_numericas),axis=1)
-
+        st.write('### DataFrame sin Variables no Numericas')
         st.dataframe(df_num)
 
 
