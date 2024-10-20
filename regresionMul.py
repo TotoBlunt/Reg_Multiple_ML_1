@@ -71,7 +71,7 @@ try:
         st.write('### Intercepto y Coeficientes')
         st.write(f'Intercepto: {model_RegL.intercept_}')
         st.write(f'Coeficientes: {model_RegL.coef_}')
-        st.write(f'Lee {y_test.shape},{y_pred.shape}')
+        st.write(f'Lee {y_test.shape}}')
         st.write('### Metricas de Evaluacion del Modelo')
         #Metricas de evaluacion
         r2 = r2_score(y_test,y_pred)
