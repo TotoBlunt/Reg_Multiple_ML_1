@@ -3,6 +3,7 @@ from sklearn.linear_model import LinearRegression
 import pandas as pd 
 from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.model_selection import train_test_split,cross_val_score
+import matplotlib.pyplot as plt
 import openpyxl
 
 #Titulo para el app
@@ -80,6 +81,17 @@ try:
         #Validacion cruzada
         cv_model = cross_val_score(model_RegL,X,y,cv=5,scoring='r2')
         st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
+
+        st.write('### Grafico de dispersion con linea de regresion')
+        # Gráfico de dispersión con línea de regresión
+        plt.scatter(X_test, y_test, color='blue')
+        plt.plot(X_test, y_pred, color='red')
+        plt.xlabel("Variable Independiente")
+        plt.ylabel("Variable Dependiente")
+        plt.title("Regresión Lineal")
+
+        # Mostrar el gráfico en Streamlit
+        st.pyplot()
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
