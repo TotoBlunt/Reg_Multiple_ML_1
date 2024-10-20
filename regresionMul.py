@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 import pandas as pd 
 from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.model_selection import train_test_split,cross_val_score
-import matplotlib.pyplot as plt
+import seaborn  as sns
 import openpyxl
 
 #Titulo para el app
@@ -84,16 +84,12 @@ try:
         st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
 
         st.write('### Grafico de dispersion con linea de regresion')
-        st.write(X_test.shape)
-        st.write(y_test.shape,y_pred.shape)
-        # Gráfico de dispersión con línea de regresión
-        plt.scatter(X_test, y_test, color='blue')
-        #plt.plot(X_test, y_pred, color='red')
-        plt.xlabel("Variable Independiente")
-        plt.ylabel("Variable Dependiente")
-        plt.title("Regresión Lineal")
-
-        # Mostrar el gráfico en Streamlit
+        #Crear dataframe para el grafico
+        results = pd.DataFrame({'Real': y, 'Predicción': y_pred})
+        #Generacion del grafico con la linea de regresion
+        fig, ax = plt.subplots(figsize=(8, 6))
+        sns.regplot(x='Real', y='Predicción', data=results, ax=ax, line_kws={"color": "red"})
+        #Mostrar
         st.pyplot()
 
 except Exception as e:
