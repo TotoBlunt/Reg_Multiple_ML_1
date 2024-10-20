@@ -82,7 +82,7 @@ try:
         #Validacion cruzada
         cv_model = cross_val_score(model_RegL,X,y,cv=5,scoring='r2')
         st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
-        st.write(y_test.shape,y_pred.shape)
+        st.write(f'{y_test.shape},{y_pred.shape}')
         st.write('### Grafico de dispersion con linea de regresion')
         
         #Crear dataframe para el grafico
