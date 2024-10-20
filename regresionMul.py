@@ -71,7 +71,7 @@ try:
         st.write('### Intercepto y Coeficientes')
         st.write(f'Intercepto: {model_RegL.intercept_}')
         st.write(f'Coeficientes: {model_RegL.coef_}')
-        st.write(f'Lee {y_test.shape}')
+
         st.write('### Metricas de Evaluacion del Modelo')
         #Metricas de evaluacion
         r2 = r2_score(y_test,y_pred)
@@ -83,7 +83,7 @@ try:
         cv_model = cross_val_score(model_RegL,X,y,cv=5,scoring='r2')
         st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
         
-        st.write('### Grafico de dispersion con linea de regresion')
+        st.write(f'### Grafico de dispersion con linea de regresion {y_test.shape}, {y_pred.shape}')
         
         #Crear dataframe para el grafico
         results = pd.DataFrame({'Real': y_test, 'Predicción': y_pred})
