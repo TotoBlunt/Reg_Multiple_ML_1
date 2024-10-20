@@ -88,7 +88,7 @@ try:
         st.write(y_test.shape,y_pred.shape)
         # Gráfico de dispersión con línea de regresión
         plt.scatter(X_test, y_test, color='blue')
-        plt.plot(X_test, y_pred, color='red')
+        #plt.plot(X_test, y_pred, color='red')
         plt.xlabel("Variable Independiente")
         plt.ylabel("Variable Dependiente")
         plt.title("Regresión Lineal")
