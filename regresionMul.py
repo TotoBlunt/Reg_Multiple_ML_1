@@ -84,6 +84,7 @@ try:
         st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
 
         st.write('### Grafico de dispersion con linea de regresion')
+        st.write(y_test.shape,y_pred.shape)
         #Crear dataframe para el grafico
         results = pd.DataFrame({'Real': y_test, 'Predicción': y_pred})
         #Generacion del grafico con la linea de regresion
