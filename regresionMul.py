@@ -2,6 +2,7 @@ import streamlit as st
 from sklearn.linear_model import LinearRegression
 import pandas as pd 
 from sklearn.metrics import r2_score,mean_squared_error
+from sklearn.model_selection import train_test_split,cross_val_score
 import openpyxl
 
 #Titulo para el app
@@ -51,6 +52,29 @@ try:
         #Selecionar Variables independientes o predictoras
         predictoras = st.multiselect('Selecionar variables predictoras o independientes:' , df_num.columns)
         st.write(predictoras)
+
+        #Definir variables
+        X = df_num[list(predictoras)]
+        y = df_num[target]
+
+        #Crear variables de entrenamiento y test
+        X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,random_state=42)
+
+        #Crear Modelo
+        model_RegL = LinearRegression()
+        #Entrenar modelo
+        model_RegL.fit(X_train,y_train)
+        #Hacer prediccion
+        y_pred = model_RegL.predict(X_test)
+        #Metricas de medicion
+        r2 = r2_score(y_test,y_pred)
+        mse = mean_squared_error(y_test,y_pred)
+        st.write(f'R2: {r2}')
+        st.write(f'MSE: {mse}')
+
+        #Validacion cruzada
+        cv_model = cross_val_score(model_RegL,X,y,cv=5,scoring='r2')
+        print(f'Mediana de Validacion Cruzada: {cv_model.mean()}')
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
