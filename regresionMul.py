@@ -66,6 +66,8 @@ try:
         model_RegL.fit(X_train,y_train)
         #Hacer prediccion
         y_pred = model_RegL.predict(X_test)
+
+        st.write('### Metricas de Evaluacion del Modelo')
         #Metricas de medicion
         r2 = r2_score(y_test,y_pred)
         mse = mean_squared_error(y_test,y_pred)
