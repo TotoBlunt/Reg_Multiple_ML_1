@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 import pandas as pd 
 from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.model_selection import train_test_split,cross_val_score
-import seaborn  as sns
+import seaborn as sns
 import openpyxl
 
 #Titulo para el app
