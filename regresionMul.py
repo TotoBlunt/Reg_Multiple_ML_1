@@ -85,7 +85,7 @@ try:
 
         st.write('### Grafico de dispersion con linea de regresion')
         #Crear dataframe para el grafico
-        results = pd.DataFrame({'Real': y, 'Predicción': y_pred})
+        results = pd.DataFrame({'Real': y_test, 'Predicción': y_pred})
         #Generacion del grafico con la linea de regresion
         fig, ax = plt.subplots(figsize=(8, 6))
         sns.regplot(x='Real', y='Predicción', data=results, ax=ax, line_kws={"color": "red"})
