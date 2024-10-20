@@ -74,7 +74,7 @@ try:
 
         #Validacion cruzada
         cv_model = cross_val_score(model_RegL,X,y,cv=5,scoring='r2')
-        print(f'Mediana de Validacion Cruzada: {cv_model.mean()}')
+        st.write(f'Mediana de Validacion Cruzada: {cv_model.mean()}')
 
 except Exception as e:
     st.error(f'Error al leer el archivo: {e}')
