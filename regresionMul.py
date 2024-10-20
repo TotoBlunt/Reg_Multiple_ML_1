@@ -44,7 +44,8 @@ try:
             df_num = df.drop(list(no_numericas),axis=1)
         st.write('### DataFrame sin Variables no Numericas')
         st.dataframe(df_num)
-
+        #Eliminando valores nulos
+        df_num.dropna(inplace=True)
 
         #Seleccionar variable Objetivo o Target
         target = st.selectbox('Selecciona la Variable Objetivo o Target :', df_num.columns)
