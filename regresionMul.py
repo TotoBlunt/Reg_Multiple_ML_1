@@ -84,6 +84,8 @@ try:
         st.write(f'Mediana de Validacion Cruzada: {cv_model.mean():.4f}')
 
         st.write('### Grafico de dispersion con linea de regresion')
+        st.write(X_test.shape)
+        st.write(y_test.shape,y_pred.shape)
         # Gráfico de dispersión con línea de regresión
         plt.scatter(X_test, y_test, color='blue')
         plt.plot(X_test, y_pred, color='red')
